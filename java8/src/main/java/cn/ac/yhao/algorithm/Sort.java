@@ -2,7 +2,7 @@ package cn.ac.yhao.algorithm;
 
 import java.util.Arrays;
 
-public class SortUtil {
+public class Sort {
 
     public static void main(String[] args) {
         int[] array = {2, 3, 5, 4, 8, 3, 9, 11, 14, 18, 12, 13, 15};
