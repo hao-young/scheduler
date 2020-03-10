@@ -1,40 +1,12 @@
-package cn.ac.yhao.algorithm;
+package cn.ac.yhao.algorithm.leetcode;
 
 import org.junit.jupiter.api.Test;
 
-
-public class Solution {
-
-    /**
-     * 给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。
-     *
-     * 示例 1:
-     *
-     * 输入: 123Solution
-     * 输出: 321
-     *  示例 2:
-     *
-     * 输入: -123
-     * 输出: -321
-     * 示例 3:
-     *
-     * 输入: 120
-     * 输出: 21
-     */
-    public int reverse(int x) {
-        int rec = 0;
-        while (x!=0) {
-            if (rec > Integer.MAX_VALUE/10 || rec < Integer.MIN_VALUE/10){
-                return 0;
-            }
-            rec = rec*10+ x%10;
-            x = x / 10;
-        }
-        return rec;
-    }
-
+public class Solution2 {
 
     /**
+     *  两数相加
+     *
      * 给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。
      *
      * 如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。
@@ -71,6 +43,7 @@ public class Solution {
         return head.next;
     }
 
+
     @Test
     public void addTwoNumbersTest() {
         ListNode l1 = new ListNode(9, new ListNode(9));
@@ -91,26 +64,19 @@ public class Solution {
 
     }
 
-    @Test
-    public void reverseTest() {
-        int s = -153236469;
-        int reverse = this.reverse(s);
-        System.out.println(s);
-        System.out.println(reverse);
+
+    class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) { val = x; }
+
+        ListNode(int x, ListNode next) {
+            val = x;
+            this.next = next;
+        }
 
     }
 
 }
 
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) { val = x; }
-
-    ListNode(int x, ListNode next) {
-        val = x;
-        this.next = next;
-    }
-
-}
