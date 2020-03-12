@@ -1,6 +1,6 @@
 package cn.ac.yhao.algorithm.leetcode;
 
-import java.math.BigInteger;
+import org.junit.jupiter.api.Test;
 
 public class Solution6 {
 
@@ -32,12 +32,69 @@ public class Solution6 {
      * @return
      */
     public String gcdOfStrings(String str1, String str2) {
-        BigInteger i = new BigInteger("12");
-        BigInteger j = new BigInteger("12");
-        i.gcd(j);
+        if (!(str1 + str2).equals(str2 + str1)) {
+            return "";
+        }
+        return str1.substring(0, gcd(str1.length(), str2.length()));
+    }
 
+    public String gcdOfStrings2(String str1, String str2) {
+        int len1 = str1.length();
+        int len2 = str2.length();
+        if (len2 == 0) {
+            return str1;
+        }
+        if (len2 > len1) {
+            return gcdOfStrings2(str2, str1);
+        }
+        if (!str1.startsWith(str2)) {
+            return "";
+        }
+        // 这里辗转相除和 a % b 有些区别，a % b 可能会去除 n 个 b 只留下余数
+        // 但是对于 str，只能每一去掉一个 b！
+        return gcdOfStrings2(str2, str1.substring(len2, len1));
+    }
 
-        return "";
+    public String gcdOfStrings3(String str1, String str2) {
+        int len1 = str1.length();
+        int len2 = str2.length();
+        if (len1 == 0) {
+            return str2;
+        }
+        if (len2 > len1) {
+            return gcdOfStrings3(str2, str1);
+        }
+        if (!str1.startsWith(str2)) {
+            return "";
+        }
+        // 这里辗转相处和 a % b 有些区别，a % b 可能会去除 n 个 b 只留下余数
+        // 但是对于 str，只能每一去掉一个 b！
+        return gcdOfStrings3(str2, str1.substring(len2, len1));
+    }
+
+    /**
+     * 最大公约数
+     *
+     * @param a
+     * @param b
+     * @return
+     */
+    private int gcd(int a, int b) {
+//        int r;
+//        while (b != 0) {
+//            r = a % b;
+//            a = b;
+//            b = r;
+//        }
+//        return a;
+        if (b == 0) return a;
+        return gcd(b, a % b);
+    }
+
+    @Test
+    public void test() {
+        String str1 = "TAUXXTAUXXTAUXXTAUXXTAUXX", str2 = "TAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXX";
+        System.out.println(gcdOfStrings2(str1, str2));
     }
 
 }
