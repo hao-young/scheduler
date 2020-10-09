@@ -2,7 +2,7 @@ package cn.ac.yhao.algorithm.leetcode;
 
 import org.junit.jupiter.api.Test;
 
-public class Solution9 {
+public class LeetCode300 {
 
     /**
      * 最长上升子序列

@@ -1,8 +1,9 @@
 package cn.ac.yhao.algorithm.leetcode;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6 {
+public class LeetCode1071 {
 
     /**
      * 字符串的最大公因子
@@ -94,7 +95,9 @@ public class Solution6 {
     @Test
     public void test() {
         String str1 = "TAUXXTAUXXTAUXXTAUXXTAUXX", str2 = "TAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXX";
-        System.out.println(gcdOfStrings2(str1, str2));
+        Assertions.assertEquals("TAUXX", this.gcdOfStrings(str1, str2));
+        Assertions.assertEquals("TAUXX", this.gcdOfStrings2(str1, str2));
+        Assertions.assertEquals("TAUXX", this.gcdOfStrings3(str1, str2));
     }
 
 }

@@ -1,8 +1,9 @@
 package cn.ac.yhao.algorithm.leetcode;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution7 {
+public class LeetCode1013 {
 
     /**
      * 将数组分成和相等的三个部分
@@ -39,14 +40,14 @@ public class Solution7 {
 
     @Test
     public void test() {
-//        int[] A = {0, 2, 1, -6, 6, -7, 9, 1, 2, 0, 1};
-//        System.out.println(canThreePartsEqualSum(A)); // true
-//
-//        A = new int[]{0, 2, 1, -6, 6, 7, 9, -1, 2, 0, 1};
-//        System.out.println(canThreePartsEqualSum(A)); // false
+        int[] A = {0, 2, 1, -6, 6, -7, 9, 1, 2, 0, 1};
+        Assertions.assertTrue(this.canThreePartsEqualSum(A)); // true
 
-       int[] A = new int[]{3,3,6,5,-2,2,5,1,-9,4};
-        System.out.println(canThreePartsEqualSum(A)); // true
+        A = new int[]{0, 2, 1, -6, 6, 7, 9, -1, 2, 0, 1};
+        Assertions.assertFalse(this.canThreePartsEqualSum(A)); // false
+
+        A = new int[]{3,3,6,5,-2,2,5,1,-9,4};
+        Assertions.assertTrue(this.canThreePartsEqualSum(A));
     }
 
 }

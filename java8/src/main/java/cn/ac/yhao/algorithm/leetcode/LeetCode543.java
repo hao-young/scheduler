@@ -1,9 +1,10 @@
 package cn.ac.yhao.algorithm.leetcode;
 
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution5 {
+public class LeetCode543 {
 
     /**
      * 二叉树的直径
@@ -40,25 +41,11 @@ public class Solution5 {
     }
 
     @Test
-    public void treeTest() {
+    public void test() {
         TreeNode node = new TreeNode(1, new TreeNode(2, new TreeNode(4), new TreeNode(5)), new TreeNode(3));
-        System.out.println(diameterOfBinaryTree(node));
+        Assertions.assertEquals(3, this.diameterOfBinaryTree(node));
     }
 
-    class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-        TreeNode(int x, TreeNode lNode, TreeNode rNode) {
-            val = x;
-            left = lNode;
-            right = rNode;
-        }
-    }
 }
 
 

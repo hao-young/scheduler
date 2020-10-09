@@ -1,8 +1,9 @@
 package cn.ac.yhao.algorithm.leetcode;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution4 {
+public class LeetCode121 {
 
     /**
      * 买卖股票的最佳时机
@@ -57,13 +58,13 @@ public class Solution4 {
     }
 
     @Test
-    public void maxProfitTest() {
+    public void test() {
         int[] prices = {7,1,5,3,6,4};
-        int i = this.maxProfit1(prices);
-        System.out.println(i);
+        Assertions.assertEquals(5, this.maxProfit(prices));
+        Assertions.assertEquals(5, this.maxProfit1(prices));
 
         prices = new int[]{7,6,4,3,1};
-        i = this.maxProfit1(prices);
-        System.out.println(i);
+        Assertions.assertEquals(0, this.maxProfit(prices));
+        Assertions.assertEquals(0, this.maxProfit1(prices));
     }
 }
