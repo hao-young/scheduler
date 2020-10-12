@@ -1,34 +1,13 @@
 package cn.ac.yhao.algorithm;
 
+import org.junit.jupiter.api.Test;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 public class Su {
-
-    public static void main(String[] args) {
-        SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
-        Calendar cal = Calendar.getInstance();
-        try {
-            cal.setTime(sdf.parse("2020-07-20 11:12:33"));
-
-            System.out.println(sdf.format(cal.getTime()));
-            System.out.println(sdf.format(sdf.parse("2020-07-20 11:12:33")));
-            cal.set(Calendar.HOUR_OF_DAY,0);
-            cal.set(Calendar.MINUTE,0);
-            cal.set(Calendar.SECOND,0);
-            Date time1 = cal.getTime();
-            cal.add(Calendar.DATE,1);
-            Date time2 = cal.getTime();
-            System.out.println(sdf.format(time1));
-            System.out.println(sdf.format(time2));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-//        System.out.println(geometricSum(100, 1, 2));
-    }
 
     /**
      * 等比数列求和
@@ -42,5 +21,10 @@ public class Su {
             return a*n;
         }
         return a * (1-Math.pow(q, n))/(1-q);
+    }
+
+    @Test
+    public void test() {
+        System.out.println(geometricSum(100, 1, 2));
     }
 }

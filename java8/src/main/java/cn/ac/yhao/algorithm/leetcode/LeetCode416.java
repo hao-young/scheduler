@@ -36,11 +36,11 @@ public class LeetCode416 {
             target += num;
             maxNum = Math.max(maxNum, num);
         }
-        if ((target & 1) == 1) {
+        if ((target & 1) == 1) { //奇数
             return false;
         }
         target /= 2;
-        if (maxNum > target) {
+        if (maxNum > target) { //最大值大于总和的一半
             return false;
         }
         int len = nums.length;
