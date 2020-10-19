@@ -49,21 +49,15 @@ public class LeetCode2 {
     public void test() {
         ListNode l1 = new ListNode(9, new ListNode(9));
         ListNode l2 = new ListNode(9);
-        this.showNum(l1);
+        l1.show();
         System.out.println("");
-        this.showNum(l2);
+        l2.show();
         System.out.println("");
         ListNode listNode = this.addTwoNumbers(l1, l2);
-        this.showNum(listNode);
+        listNode.show();
 
     }
-    private void showNum(ListNode li) {
-        System.out.print(li.val + "->");
-        if (li.next != null) {
-            this.showNum(li.next);
-        }
 
-    }
 
 }
 

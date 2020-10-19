@@ -10,4 +10,12 @@ public class ListNode {
         val = x;
         this.next = next;
     }
+
+    public void show() {
+        System.out.print(this.val);
+        if (this.next != null) {
+            System.out.print("->");
+            this.next.show();
+        }
+    }
 }
