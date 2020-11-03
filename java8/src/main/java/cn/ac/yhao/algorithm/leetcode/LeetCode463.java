@@ -1,5 +1,8 @@
 package cn.ac.yhao.algorithm.leetcode;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 /**
  * 岛屿的周长
  *
@@ -19,4 +22,43 @@ package cn.ac.yhao.algorithm.leetcode;
  * 解释: 它的周长是下面图片中的 16 个黄色的边：
  */
 public class LeetCode463 {
+    static int[] dx = {0,1,0,-1};
+    static int[] dy = {1,0,-1,0};
+
+    /**
+     * 迭代
+     * @param grid
+     * @return
+     */
+    public int islandPerimeter(int[][] grid) {
+        int ans = 0;
+        int m = grid.length, n = grid[0].length;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == 1) {
+                    for (int k = 0; k < 4; k++) {
+                        int tx = i + dx[k];
+                        int ty = j + dy[k];
+                        if (tx < 0 || tx >= m || ty < 0 || ty >= n || grid[tx][ty] == 0) {
+                            ans++;
+                        }
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+
+    public int islandPerimeter1(int[][] grid) {
+        int ans = 0;
+
+        return ans;
+    }
+
+    @Test
+    public void test() {
+        int[][] land = {{0,1,0,0},{1,1,1,0},{0,1,0,0},{1,1,0,0}};
+        Assertions.assertEquals(16, this.islandPerimeter(land));
+
+    }
 }
