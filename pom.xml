@@ -7,6 +7,7 @@
     <groupId>cn.ac.yhao</groupId>
     <artifactId>java-learn</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <modules>
         <module>java8</module>
