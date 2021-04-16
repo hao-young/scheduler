@@ -15,6 +15,7 @@ public class RedisDemo {
     private ShardedJedisPool shardedJedisPool; //分片连接池
 
 
+
     public static void main(String[] args) {
         new RedisDemo().show();
     }
@@ -34,7 +35,7 @@ public class RedisDemo {
         config.setMaxWaitMillis(10000);
         config.setTestOnBorrow(false);
 
-        jedisPool = new JedisPool(config, "127.0.0.1", 6379);
+        jedisPool = new JedisPool(config, "127.0.0.1", 7000,5000,"admin1234");
     }
 
 
@@ -44,20 +45,24 @@ public class RedisDemo {
         config.setMaxIdle(5);
         config.setMaxWaitMillis(10001);
         config.setTestOnBorrow(false);
+
         //slave连接
         List<JedisShardInfo> shards = new ArrayList<JedisShardInfo>();
-        shards.add(new JedisShardInfo("127.0.0.1", 6379, "master"));
+        JedisShardInfo info = new JedisShardInfo("127.0.0.1", 7000, "master");
+        info.setPassword("admin1234");
+        shards.add(info);
+
         //构造池
         shardedJedisPool = new ShardedJedisPool(config, shards);
 
     }
 
     public void show() {
-        //KeyOperate();
+        KeyOperate();
         //StringOperate();
         //ListOperate();
         //SetOperate();
-        sortedSetOperate();
+//        sortedSetOperate();
         //HashOperate();
     }
 
@@ -72,7 +77,7 @@ public class RedisDemo {
 
         System.out.println("新增key001：" + shardedJedis.set("key001", "value001"));
 
-        System.out.println("设置key001的过期时间为5秒：" + jedis.expire("key001", 5));
+        System.out.println("设置key001的过期时间为5秒：" + shardedJedis.expire("key001", 5));
 
         try {
             Thread.sleep(2000);
@@ -80,15 +85,16 @@ public class RedisDemo {
             e.printStackTrace();
         }
         //查看某个key的剩余生存时间，单位【秒】， 永久生存或者不存在的都返回-1
-        System.out.println("查看key001的剩余生存时间：" + jedis.ttl("key001"));
+        System.out.println("查看key001的剩余生存时间：" + shardedJedis.ttl("key001"));
         //移除某个key的生存时间
-        System.out.println("移除key001的生存时间：" + jedis.persist("key001"));
+        System.out.println("移除key001的生存时间：" + shardedJedis.persist("key001"));
 
-        System.out.println("查看key001的剩余生存时间：" + jedis.ttl("key001"));
+        System.out.println("查看key001的剩余生存时间：" + shardedJedis.ttl("key001"));
         //查看key所存储的值的类型
-        System.out.println("查看key所存储的值的类型：" + jedis.type("key001"));
+        System.out.println("查看key所存储的值的类型：" + shardedJedis.type("key001"));
         //删除key
-        System.out.println("移除key001：" + jedis.del("key001"));
+        System.out.println("移除key001：" + shardedJedis.del("key001"));
+
     }
 
 
@@ -150,6 +156,7 @@ public class RedisDemo {
 
         System.out.println("=============获取子串=============");
         System.out.println("获取key302对应值中的子串：" + shardedJedis.getrange("key302", 5, 7));
+
     }
 
 
