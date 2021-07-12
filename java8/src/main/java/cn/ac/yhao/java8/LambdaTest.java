@@ -12,6 +12,16 @@ interface MathOperation {
 
 public class LambdaTest {
 
+    private static int operator(int a, int b, MathOperation mathOperation) {
+        return mathOperation.operation(a, b);
+    }
+
+    public static void repeat(int n, IntConsumer action) {
+        for (int i = 0; i < n; i++) {
+            action.accept(i);
+        }
+    }
+
     public static void main(String[] args) {
         //类型声明
         MathOperation add = (int a, int b) -> a + b;
@@ -24,12 +34,12 @@ public class LambdaTest {
         //不带大括号及返回语句
         MathOperation div = (int a, int b) -> a / b;
 
-        /*
+
         System.out.println("10 + 5 = "+ operator(10, 5, add));
         System.out.println("10 - 5 = "+ operator(10, 5, sub));
         System.out.println("10 * 5 = "+ operator(10, 5, mul));
         System.out.println("10 / 5 = "+ operator(10, 5, div));
-        */
+
         /*
         String[] words = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn"};
         Arrays.sort(words, (first, second) -> first.length() - second.length());
@@ -49,20 +59,9 @@ public class LambdaTest {
         /**
          * 重复一个动作n次
          */
-        //repeat(10, i-> System.out.println("Countdown:"+(9-i)));
+        repeat(10, i-> System.out.println("Countdown:"+(9-i)));
 
     }
-
-    private static int operator(int a, int b, MathOperation mathOperation) {
-        return mathOperation.operation(a, b);
-    }
-
-    public static void repeat(int n, IntConsumer action) {
-        for (int i = 0; i < n; i++) {
-            action.accept(i);
-        }
-    }
-
 
 }
 
