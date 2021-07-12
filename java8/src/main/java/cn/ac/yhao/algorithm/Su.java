@@ -2,14 +2,9 @@ package cn.ac.yhao.algorithm;
 
 import org.junit.jupiter.api.Test;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
 public class Su {
 
-    /**
+    /**o
      * 等比数列求和
      * Sn = a1*(1-q^n)/(1-q)
      * @param a  首项
