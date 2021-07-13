@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 public class Su {
 
-    /**o
+    /**
      * 等比数列求和
      * Sn = a1*(1-q^n)/(1-q)
      * @param a  首项
