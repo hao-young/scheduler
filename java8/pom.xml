@@ -73,6 +73,12 @@
             <!--<scope>test</scope>-->
         </dependency>
 
+        <!-- 从图片或视频中提取EXIF,ICC等其他元数据信息的java库 -->
+        <dependency>
+            <groupId>com.drewnoakes</groupId>
+            <artifactId>metadata-extractor</artifactId>
+            <version>2.16.0</version>
+        </dependency>
 
     </dependencies>
 
