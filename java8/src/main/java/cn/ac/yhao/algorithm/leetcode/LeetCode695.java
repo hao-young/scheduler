@@ -40,7 +40,7 @@ public class LeetCode695 {
     }
 
     /**
-     * 深度遍历
+     * 深度优先搜索
      * @param grid
      * @param x
      * @param y
