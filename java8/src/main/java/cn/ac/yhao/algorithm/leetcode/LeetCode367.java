@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * @description: 有效的完全平方数
- * 二分查找
+ * [二分查找,牛顿迭代法]
  *
  * 给定一个 正整数 num ，编写一个函数，如果 num 是一个完全平方数，则返回 true ，否则返回 false 。
  * 进阶：不要 使用任何内置的库函数，如 sqrt 。
@@ -23,8 +23,9 @@ import org.junit.jupiter.api.Test;
  */
 public class LeetCode367 {
 
+    //二分法
     public boolean isPerfectSquare(int num) {
-        if (num < 3) return true;
+        if (num == 1) return true;
         int left = 1, right = num;
         int mid, tem;
         while (left < right) {
@@ -41,10 +42,27 @@ public class LeetCode367 {
         return false;
     }
 
+    //牛顿-拉弗森迭代法
+    public boolean isPerfectSquare1(int num) {
+        if (num == 1) {
+            return true;
+        }
+        double x = num;
+        while (x * x - num >= 1e-6) {
+            x = x / 2 + num / (2 * x);
+        }
+        int ans = (int) x;
+        return ans * ans == num;
+    }
+
     @Test
     public void test() {
         Assertions.assertTrue(isPerfectSquare(16));
         Assertions.assertTrue(isPerfectSquare(1));
         Assertions.assertFalse(isPerfectSquare(14));
+
+        Assertions.assertTrue(isPerfectSquare1(16));
+        Assertions.assertTrue(isPerfectSquare1(1));
+        Assertions.assertFalse(isPerfectSquare1(14));
     }
 }

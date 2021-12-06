@@ -74,7 +74,7 @@ class SumTask extends RecursiveTask<Long> {
         System.out.println(String.format("split %d~%d ==> %d~%d, %d~%d", start, end, start, middle, middle, end));
         SumTask subtask1 = new SumTask(this.array, start, middle);
         SumTask subtask2 = new SumTask(this.array, middle, end);
-        invokeAll(subtask1, subtask2);
+        this.invokeAll(subtask1, subtask2);
         Long subresult1 = subtask1.join();
         Long subresult2 = subtask2.join();
         Long result = subresult1 + subresult2;
