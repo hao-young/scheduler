@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
- * @description: 有效的完全平方数
+ * 有效的完全平方数
  * [二分查找,牛顿迭代法]
  *
  * 给定一个 正整数 num ，编写一个函数，如果 num 是一个完全平方数，则返回 true ，否则返回 false 。
@@ -19,7 +19,7 @@ import org.junit.jupiter.api.Test;
  * 输出：false
  *
  * 提示：
- * 1 <= num <= 2^31 - 1
+ * 1 <= num <= 2<sup>31</sup> - 1
  */
 public class LeetCode367 {
 

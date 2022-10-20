@@ -6,7 +6,7 @@ public class Su {
 
     /**
      * 等比数列求和
-     * Sn = a1*(1-q^n)/(1-q)
+     * Sn = a<sub>1</sub>*(1-q<sup>n</sup>)/(1-q)
      * @param a  首项
      * @param q  等比
      * @param n  项数
